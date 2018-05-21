@@ -4,6 +4,8 @@ Generic audio driver to use the I2S interface of the Raspberry Pi for sound outp
 
 This repo includes the files to setup the I²S-Interface of the Raspberry Pi to use it as a generic audio output (digital soundcard). All devices which don't need any configuration or initialisation via I²C or SPI can be connected. Possible devices are DACs and DSPs which work at a fixed sample rate (and don't have an ASRC). One of the most pupular devices is the ADAU1701 SigmaDSP from Analog Devices. The following configuration will be explained based on the ADAU1701.
 
+The installation guide is available on my website: https://digital-audio-labs.jimdofree.com/raspberry-pi/generischer-i2s-treiber/.
+
 Settings of the Raspberry Pi
 ---------------------------------
 Codec: master mode (clocks provided from external oscillator)
