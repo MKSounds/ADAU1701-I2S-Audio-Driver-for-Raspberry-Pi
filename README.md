@@ -6,6 +6,16 @@ This repo includes the files to setup the I²S-Interface of the Raspberry Pi to 
 
 The installation guide is available on my website: https://digital-audio-labs.jimdofree.com/raspberry-pi/generischer-i2s-treiber/.
 
+Wireing Raspberry to ADAU1701
+-------------------------------------
+Pin 12 (PCM_CLK)  -  MP5 und MP11
+
+Pin 35 (PCM_FS)  -  MP4 und MP10
+
+Pin 40 (PCM_DOUT)  -  MP0 (or MP1, MP2, MP3)
+
+Pin 39 (GND)  -  any GND-pin
+
 Settings of the Raspberry Pi
 ---------------------------------
 Codec: master mode (clocks provided from external oscillator)
