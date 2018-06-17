@@ -8,9 +8,9 @@ The installation guide is available on my website: https://digital-audio-labs.ji
 
 Wireing Raspberry to ADAU1701
 -------------------------------------
-Pin 12 (PCM_CLK)  -  MP5 und MP11
+Pin 12 (PCM_CLK)  -  MP5 and MP11
 
-Pin 35 (PCM_FS)  -  MP4 und MP10
+Pin 35 (PCM_FS)  -  MP4 and MP10
 
 Pin 40 (PCM_DOUT)  -  MP0 (or MP1, MP2, MP3)
 
