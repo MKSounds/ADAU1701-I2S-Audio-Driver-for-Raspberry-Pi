@@ -6,6 +6,8 @@ This repo includes the files to setup the I²S-Interface of the Raspberry Pi to 
 
 The installation guide is available on my website: https://digital-audio-labs.jimdofree.com/english/raspberry-pi/adau1701-i2s-driver/.
 
+The testproject is a Sigma Studio project file to test the digital IO-ports of the ADAU1701. Therefore a sine wave is generated, output on MP6, fed back to MP0 and output to the DAC. The aim is to check whether the config of the pins and the wireing of the dsp are correct.
+
 Wireing Raspberry to ADAU1701
 -------------------------------------
 Pin 12 (PCM_CLK)  -  MP5 and MP11
