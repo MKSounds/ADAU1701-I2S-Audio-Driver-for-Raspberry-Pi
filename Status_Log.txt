@@ -1,0 +1,87 @@
+
+
+volumio@pistreamer3:~$ uname -a
+Linux pistreamer3 4.19.86-v7+ #1283 SMP Fri Nov 29 18:32:25 GMT 2019 armv7l GNU/Linux
+
+volumio@pistreamer3:~$ aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: ALSA [bcm2835 ALSA], device 0: bcm2835 ALSA [bcm2835 ALSA]
+  Subdevices: 7/7
+  Subdevice #0: subdevice #0
+  Subdevice #1: subdevice #1
+  Subdevice #2: subdevice #2
+  Subdevice #3: subdevice #3
+  Subdevice #4: subdevice #4
+  Subdevice #5: subdevice #5
+  Subdevice #6: subdevice #6
+card 0: ALSA [bcm2835 ALSA], device 1: bcm2835 IEC958/HDMI [bcm2835 IEC958/HDMI]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 0: ALSA [bcm2835 ALSA], device 2: bcm2835 IEC958/HDMI1 [bcm2835 IEC958/HDMI1]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: Output [ADAU1701 I2S Output], device 0: bcm2835-i2s-dit-hifi dit-hifi-0 [bcm2835-i2s-dit-hifi dit-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+
+volumio@pistreamer3:~$ lsmod
+Module                  Size  Used by
+bnep                   20480  2
+hci_uart               40960  1
+btbcm                  16384  1 hci_uart
+serdev                 20480  1 hci_uart
+bluetooth             389120  22 hci_uart,bnep,btbcm
+xt_REDIRECT            16384  1
+xt_tcpudp              16384  1
+iptable_nat            16384  1
+nf_nat_ipv4            16384  1 iptable_nat
+nf_nat                 36864  2 nf_nat_ipv4,xt_REDIRECT
+nf_conntrack          135168  3 nf_nat_ipv4,xt_REDIRECT,nf_nat
+nf_defrag_ipv6         20480  1 nf_conntrack
+nf_defrag_ipv4         16384  1 nf_conntrack
+ip_tables              24576  1 iptable_nat
+ecdh_generic           28672  1 bluetooth
+x_tables               32768  3 ip_tables,xt_tcpudp,xt_REDIRECT
+nfsd                  319488  2
+brcmfmac              311296  0
+brcmutil               16384  1 brcmfmac
+sha256_generic         20480  0
+cfg80211              647168  1 brcmfmac
+snd_soc_bcm2835_i2s    20480  2
+snd_soc_spdif_tx       16384  1
+snd_soc_simple_card    16384  0
+snd_soc_simple_card_utils    16384  1 snd_soc_simple_card
+snd_soc_core          192512  4 snd_soc_spdif_tx,snd_soc_simple_card_utils,snd_soc_bcm2835_i2s,snd_soc_simple_card
+snd_bcm2835            24576  1
+rfkill                 28672  4 bluetooth,cfg80211
+snd_compress           20480  1 snd_soc_core
+snd_pcm_dmaengine      16384  1 snd_soc_core
+snd_pcm               102400  4 snd_pcm_dmaengine,snd_soc_bcm2835_i2s,snd_bcm2835,snd_soc_core
+raspberrypi_hwmon      16384  0
+hwmon                  16384  1 raspberrypi_hwmon
+snd_seq                69632  0
+snd_seq_device         16384  1 snd_seq
+bcm2835_codec          36864  0
+bcm2835_v4l2           45056  0
+v4l2_mem2mem           24576  1 bcm2835_codec
+v4l2_common            16384  1 bcm2835_v4l2
+bcm2835_mmal_vchiq     32768  2 bcm2835_codec,bcm2835_v4l2
+videobuf2_dma_contig    20480  1 bcm2835_codec
+snd_timer              32768  2 snd_seq,snd_pcm
+videobuf2_vmalloc      16384  1 bcm2835_v4l2
+videobuf2_memops       16384  2 videobuf2_dma_contig,videobuf2_vmalloc
+videobuf2_v4l2         24576  3 bcm2835_codec,bcm2835_v4l2,v4l2_mem2mem
+videobuf2_common       45056  4 bcm2835_codec,bcm2835_v4l2,v4l2_mem2mem,videobuf2_v4l2
+i2c_bcm2835            16384  0
+videodev              200704  6 bcm2835_codec,v4l2_common,videobuf2_common,bcm2835_v4l2,v4l2_mem2mem,videobuf2_v4l2
+snd                    73728  9 snd_compress,snd_seq,snd_timer,snd_seq_device,snd_bcm2835,snd_soc_core,snd_pcm
+media                  36864  3 bcm2835_codec,videodev,v4l2_mem2mem
+vc_sm_cma              36864  1 bcm2835_mmal_vchiq
+fixed                  16384  0
+uio_pdrv_genirq        16384  0
+uio                    20480  1 uio_pdrv_genirq
+i2c_dev                20480  0
+ipv6                  454656  68
+fuse                  110592  1
+squashfs               45056  1
+overlay               106496  1
