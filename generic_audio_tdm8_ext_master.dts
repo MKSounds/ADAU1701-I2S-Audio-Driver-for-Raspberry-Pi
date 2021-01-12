@@ -1,4 +1,5 @@
-// Device Tree Overlay for I2S audio output to ADAU1701
+// Device Tree Overlay for generic TDM8 audio output
+// Raspberry outputs 2 audio channels arranged in tdm8 format, 32 bit, 2 channels, bclk = 256 x fs
 
 /dts-v1/;
 /plugin/;
@@ -11,7 +12,7 @@
         __overlay__ {
 
             compatible = "simple-audio-card";
-            simple-audio-card,name = "Generic TDM8 Output - ext. Master";
+            simple-audio-card,name = "Generic TDM8 Output - extMaster";
 			
             status="okay";
 
