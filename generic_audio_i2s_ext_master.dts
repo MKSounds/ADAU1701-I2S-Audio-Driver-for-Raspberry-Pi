@@ -1,4 +1,5 @@
-// Device Tree Overlay for generic I2S audio output, 32 bit, 2 channels, bclk = 64 x fs
+// Device Tree Overlay for generic I2S audio output
+// 32 bit, 2 channels, bclk = 64 x fs
 
 /dts-v1/;
 /plugin/;
