@@ -1,4 +1,4 @@
-// Device Tree Overlay for I2S audio output to ADAU1701
+// Device Tree Overlay for generic I2S audio output, 32 bit, 2 channels, bclk = 64 x fs
 
 /dts-v1/;
 /plugin/;
@@ -11,7 +11,7 @@
         __overlay__ {
 
             compatible = "simple-audio-card";
-            simple-audio-card,name = "Generic I2S Output - ext. Master";
+            simple-audio-card,name = "Generic I2S Output - extMaster";
 			
             status="okay";
 
