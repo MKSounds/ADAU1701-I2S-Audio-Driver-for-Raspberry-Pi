@@ -14,7 +14,7 @@ Install git:
 Clone files:
 > git clone https://github.com/MKSounds/ADAU1701-I2S-Audio-Driver-for-Raspberry-Pi.git
 
-Copy overlay file to overlays directory:
+Copy overlay file to overlays directory (choose the one you want to use):
 > sudo cp ADAU1701-I2S-Audio-Driver-for-Raspberry-Pi/generic_audio_out_i2s_slave.dtbo /boot/overlays
 
 Relink the overlay to the device tree: Therefore config.txt has to be modified. Open the file with:
@@ -38,21 +38,27 @@ Install git (should be included in Volumio):
 Clone files:
 > git clone https://github.com/MKSounds/ADAU1701-I2S-Audio-Driver-for-Raspberry-Pi.git
 
-Copy overlay file to overlays directory:
+Copy overlay files to overlays directory:
 > sudo cp ADAU1701-I2S-Audio-Driver-for-Raspberry-Pi/generic_audio_out_i2s_slave.dtbo /boot/overlays
+> sudo cp ADAU1701-I2S-Audio-Driver-for-Raspberry-Pi/generic_audio_out_i2s_master.dtbo /boot/overlays
+> sudo cp ADAU1701-I2S-Audio-Driver-for-Raspberry-Pi/generic_audio_out_tdm8_slave.dtbo /boot/overlays
+> sudo cp ADAU1701-I2S-Audio-Driver-for-Raspberry-Pi/generic_audio_out_tdm8_master.dtbo /boot/overlays
 
 Integrate the ADAU1701 soundcard in the dropdown menue of Volumio. Open the file dacs.json with:
 > sudo nano /volumio/app/plugins/system_controller/i2s_dacs/dacs.json
 
 Add (copy&paste) the following line as new first device in the list of available I²S devices:
 {"id":"generic_audio_out_i2s_slave","name":"Generic I2S Driver Slave","overlay":"generic_audio_out_i2s_slave","alsanum":"2","alsacard":"Slave","mixer":"","modules":"","script":"","needsreboot":"yes"},
+{"id":"generic_audio_out_i2s_master","name":"Generic I2S Driver Master","overlay":"generic_audio_out_i2s_master","alsanum":"2","alsacard":"Master","mixer":"","modules":"","script":"","needsreboot":"yes"},
+{"id":"generic_audio_out_tdm8_slave","name":"Generic TDM Driver Slave","overlay":"generic_audio_out_tdm8_slave","alsanum":"2","alsacard":"Slave","mixer":"","modules":"","script":"","needsreboot":"yes"},
+{"id":"generic_audio_out_tdm8_master","name":"Generic TDM Driver Master","overlay":"generic_audio_out_tdm8_master","alsanum":"2","alsacard":"Master","mixer":"","modules":"","script":"","needsreboot":"yes"},
 
 Close the editor by pressing STRG+X and save the changes with y. Reboot:
 > sudo reboot
 
-Now you can select the ADAU1701 or Generic I2S Driver as I2S DAC in the user interface of Volumio (the output device will be set automatically).
+Now you can select the Generic I2S Driver as I2S DAC in the user interface of Volumio.
 If needed, you can use a software volume control (in Volume Options) as far as you don't want to regulate the volume on the dsp.
-The resampling of audio material which doesn't have a sample rate of 48 kHz can be set in the "Audio Resampling" section. The resampling works for playing local media like flash drives (network storage might work as well).
+The resampling of audio material which doesn't have a sample rate of 48 kHz (or the sample rate the clocks are incoming, if you use the RPi as clock slave) can be set in the "Audio Resampling" section. The resampling works for playing local media like flash drives (network storage might work as well).
 AirPlay users
 There's still a problem when using AirPlay, because Shairport-sync sends its data directly to the hardware. As a consequence, the resampling of the Volumio system doesn't affect the AirPlay output.
 Sound output via AirPlay doesn't work that easy. The playback is badly stuttering (re-syncing).
