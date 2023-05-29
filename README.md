@@ -83,9 +83,12 @@ Close the editor by pressing STRG+X and save the changes with y. Reboot:
 > sudo reboot
 
 Now you can select the Generic I2S Driver as I2S DAC in the user interface of Volumio.
+
 If needed, you can use a software volume control (in Volume Options) as far as you don't want to regulate the volume on the dsp.
 The resampling of audio material which doesn't have a sample rate of 48 kHz (or the sample rate the clocks are incoming, if you use the RPi as clock slave) can be set in the "Audio Resampling" section. The resampling works for playing local media like flash drives (network storage might work as well).
+
 AirPlay users
+
 There's still a problem when using AirPlay, because Shairport-sync sends its data directly to the hardware. As a consequence, the resampling of the Volumio system doesn't affect the AirPlay output.
 Sound output via AirPlay doesn't work that easy. The playback is badly stuttering (re-syncing).
 The only solution is to exchange the oscillator of the dsp board with a model which outputs a 11,2896 MHz clock. Then the dsp must be configured to 44,1 kHz sample rate. The whole system is working on 44,1 kHz clock base now.
