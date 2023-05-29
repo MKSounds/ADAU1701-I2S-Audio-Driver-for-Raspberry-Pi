@@ -30,6 +30,24 @@ Close the editor by pressing STRG+X and save the changes with y.
 Reboot:
 > sudo reboot
 
+If you want to play files which don't use 48 kHz sample rate, you have to resample the audio data. Therefore a ALSA config file will be used, which will affect the whole audio output of the system.
+Create file and open it (if it's already existing and there is code in it, you have to integrate the new code or delete the existing):
+> sudo nano ~/.asoundrc
+> 
+Copy and paste the following lines (paste by right clicking):
+
+pcm.InterpolatedOutput {
+        type plug
+        slave {
+                pcm "hw:0,0"
+                format S24_LE
+                rate 48000
+        }
+}
+pcm.!default InterpolatedOutput
+
+Close the editor by pressing STRG+X, save the changes with y and do a reboot.
+
 Installation guide Volumio 3.x
 ----------------------------------
 Install git (should be included in Volumio):
